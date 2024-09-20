@@ -1,0 +1,81 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+  }
+
+.about {
+    grid-area: main; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%; 
+    height: 100%; 
+    position: relative;
+  }
+.banner{
+
+    width: 100%;
+    
+}
+.bannerI{
+    position: absolute;
+    width: 100%;
+    object-fit: contain;
+    z-index: -1;
+}
+.bannerD{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 19%;
+}
+.bannerH{
+    font-size: 4rem;
+    color: rgb(237, 234, 234);
+
+}
+.bannerP{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    line-height: .8;   
+    font-size: large;
+    font-size: 1.2rem;
+    color: white;
+    
+}
+
+.aboutdiv{
+    display: flex;
+    flex-direction: row;
+    margin-top: 50px;
+    max-height: 350px;
+}
+.aboutD{
+    margin-left: 2px;
+    background-color: rgb(210, 208, 208);
+    padding: 10px;
+}
+.aboutD >  p:first-child {
+    font:bold;
+    color: black;
+    font-size: 20px;
+    width: 120px;
+}
+.aboutIcons{
+     margin: 2px;
+     transition: transform 0.3s ease;
+}
+.aboutIcons:hover{
+    transform: scale(1.5);
+}
+
+.icondiv{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}

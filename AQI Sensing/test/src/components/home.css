@@ -1,0 +1,10 @@
+.pie-chart-container {
+    position: relative;
+    z-index: 10; /* Ensure the PieChart is on top */
+  }
+  
+  .bar-chart-container {
+    position: relative;
+    z-index: 1; /* Lower z-index for BarChart */
+  }
+  

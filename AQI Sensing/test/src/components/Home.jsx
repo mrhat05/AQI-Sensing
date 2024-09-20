@@ -1,112 +1,201 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
 import { BsFillArchiveFill, BsFillGrid3X3GapFill, BsPeopleFill, BsFillBellFill } from 'react-icons/bs';
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, PieChart, Pie, Sector } from 'recharts';
+import { MdDangerous } from "react-icons/md";
+import { AiFillMinusCircle } from "react-icons/ai";
+import { FaCirclePlus } from "react-icons/fa6";
 
-function Home() {
+const pieData = [
+  { name: 'Place 1', value: 100, fill: '#ff0000' },
+  { name: 'Place 2', value: 78, fill: '#00ff08' },  
+  { name: 'Place 3', value: 50, fill: '#ff0000' }, 
+  { name: 'Place 4', value: 150, fill: '#ff8042' }, 
+  { name: 'Place 4', value: 200, fill: '#00ff08' }, 
+  { name: 'Place 4', value: 250, fill: '#ff8042' }, 
+  { name: 'Place 4', value: 300, fill: '#00ff08' }, 
+  { name: 'Place 4', value: 65, fill: '#ff0000' }, 
+];
 
-  const data = [
-    {
-      name: "City 1",
-      PM25: 20, // PM2.5 in range of 0-25
-      SO2: 0.05, // SO2 concentration in range of 0-0.1
-    },
-    {
-      name: "City 2",
-      PM25: 17,
-      SO2: 0.07,
-    },
-    {
-      name: "City 3",
-      PM25: 15,
-      SO2: 0.03,
-    },
-    {
-      name: "City 4",
-      PM25: 18,
-      SO2: 0.09,
-    },
-    {
-      name: "City 5",
-      PM25: 19,
-      SO2: 0.02,
-    },
-    {
-      name: "City 6",
-      PM25: 9,
-      SO2: 0.04,
-    },
-    {
-      name: "City 7",
-      PM25: 7,
-      SO2: 0.08,
-    },
-  ];
+// Define a custom active shape for PieChart
+const renderActiveShape = (props) => {
+  const RADIAN = Math.PI / 180;
+  const { cx, cy, midAngle, innerRadius, outerRadius, startAngle, endAngle, fill, payload, percent, value } = props;
+  const sin = Math.sin(-RADIAN * midAngle);
+  const cos = Math.cos(-RADIAN * midAngle);
+  const sx = cx + (outerRadius + 10) * cos;
+  const sy = cy + (outerRadius + 10) * sin;
+  const mx = cx + (outerRadius + 30) * cos;
+  const my = cy + (outerRadius + 30) * sin;
+  const ex = mx + (cos >= 0 ? 1 : -1) * 22;
+  const ey = my;
+  const textAnchor = cos >= 0 ? 'start' : 'end';
 
   return (
-    <main className='main-container'>
-      <div className='main-title'>
-        <h3>DASHBOARD</h3>
-      </div>
-
-      <div className='main-cards'>
-        <div className='card'>
-          <div className='card-inner'>
-            <h3>PRODUCTS</h3>
-            <BsFillArchiveFill className='card_icon' />
-          </div>
-          <h1>300</h1>
-        </div>
-        <div className='card'>
-          <div className='card-inner'>
-            <h3>CATEGORIES</h3>
-            <BsFillGrid3X3GapFill className='card_icon' />
-          </div>
-          <h1>12</h1>
-        </div>
-        <div className='card'>
-          <div className='card-inner'>
-            <h3>CUSTOMERS</h3>
-            <BsPeopleFill className='card_icon' />
-          </div>
-          <h1>33</h1>
-        </div>
-        <div className='card'>
-          <div className='card-inner'>
-            <h3>ALERTS</h3>
-            <BsFillBellFill className='card_icon' />
-          </div>
-          <h1>42</h1>
-        </div>
-      </div>
-
-      <div className='charts'>
-        <ResponsiveContainer width="100%" height={400}>
-          <BarChart
-            data={data}
-            margin={{
-              top: 5,
-              right: 30,
-              left: 20,
-              bottom: 5,
-            }}
-          >
-            <CartesianGrid strokeDasharray="3 3" />
-            <XAxis dataKey="name" />
-            {/* Y-axis for PM2.5 */}
-            <YAxis yAxisId="left" domain={[0, 25]} />
-            {/* Y-axis for SO2 on the right */}
-            <YAxis yAxisId="right" orientation="right" domain={[0, 0.1]} />
-            <Tooltip />
-            <Legend />
-            {/* PM2.5 Bars */}
-            <Bar yAxisId="left" dataKey="PM25" fill="#B3CDAD" />
-            {/* SO2 Bars */}
-            <Bar yAxisId="right" dataKey="SO2" fill="#FF5F5E" />
-          </BarChart>
-        </ResponsiveContainer>
-      </div>
-    </main>
+    <g>
+      <text x={cx} y={cy} dy={8} textAnchor="middle" fill={fill}>
+        {payload.name}
+      </text>
+      <Sector
+        cx={cx}
+        cy={cy}
+        innerRadius={innerRadius}
+        outerRadius={outerRadius}
+        startAngle={startAngle}
+        endAngle={endAngle}
+        fill={fill}
+      />
+      <Sector
+        cx={cx}
+        cy={cy}
+        startAngle={startAngle}
+        endAngle={endAngle}
+        innerRadius={outerRadius + 6}
+        outerRadius={outerRadius + 10}
+        fill={fill}
+      />
+      <path d={`M${sx},${sy}L${mx},${my}L${ex},${ey}`} stroke={fill} fill="none" />
+      <circle cx={ex} cy={ey} r={2} fill={fill} stroke="none" />
+      <text x={ex + (cos >= 0 ? 1 : -1) * 12} y={ey} textAnchor={textAnchor} fill="#333">{`PV ${value}`}</text>
+      <text x={ex + (cos >= 0 ? 1 : -1) * 12} y={ey} dy={18} textAnchor={textAnchor} fill="#999">
+        {`(Rate ${(percent * 100).toFixed(2)}%)`}
+      </text>
+    </g>
   );
-}
+};
 
-export default Home;
+export default class Home extends PureComponent {
+  static demoUrl = 'https://codesandbox.io/s/pie-chart-with-customized-active-shape-y93si';
+
+  state = {
+    activeIndex: 0,
+  };
+
+  onPieEnter = (_, index) => {
+    this.setState({
+      activeIndex: index,
+    });
+  };
+
+  render() {
+    // Data for BarChart
+    const barData = [
+      {
+        name: "City 1",
+        "PM2.5": 20,
+        SO2: 0.05,
+      },
+      {
+        name: "City 2",
+        "PM2.5": 17,
+        SO2: 0.07,
+      },
+      {
+        name: "City 3",
+        "PM2.5": 15,
+        SO2: 0.03,
+      },
+      {
+        name: "City 4",
+        "PM2.5": 18,
+        SO2: 0.09,
+      },
+      {
+        name: "City 5",
+        "PM2.5": 19,
+        SO2: 0.02,
+      },
+      {
+        name: "City 6",
+        "PM2.5": 9,
+        SO2: 0.04,
+      },
+      {
+        name: "City 7",
+        "PM2.5": 7,
+        SO2: 0.08,
+      },
+    ];
+
+    return (
+      <main className='main-container'>
+        <div className='main-title'>
+          <h3>DASHBOARD</h3>
+        </div>
+
+        <div className='main-cards'>
+          <div className='card'>
+            <div className='card-inner'>
+              <h3>Danger Zones</h3>
+              <MdDangerous className='card_icon' />
+            </div>
+            <h1>300</h1>
+          </div>
+          <div className='card'>
+            <div className='card-inner'>
+              <h3>Moderate Zones</h3>
+              <AiFillMinusCircle className='card_icon' />
+            </div>
+            <h1>12</h1>
+          </div>
+          <div className='card'>
+            <div className='card-inner'>
+              <h3>Safe Zones</h3>
+              <FaCirclePlus className='card_icon' />
+              </div>
+            <h1>33</h1>
+          </div>
+          <div className='card'>
+            <div className='card-inner'>
+              <h3>ALERTS</h3>
+              <BsFillBellFill className='card_icon' />
+            </div>
+            <h1>42</h1>
+          </div>
+        </div>
+
+        <div className='charts'>
+          <ResponsiveContainer width="100%" height={400}>
+            <BarChart
+              data={barData}
+              margin={{
+                top: 5,
+                right: 30,
+                left: 20,
+                bottom: 5,
+              }}
+            >
+              <CartesianGrid strokeDasharray="3 3" />
+              <XAxis dataKey="name" />
+              <YAxis yAxisId="left" domain={[0, 25]} />
+              <YAxis yAxisId="right" orientation="right" domain={[0, 0.1]} />
+              <Tooltip />
+              <Legend />
+              {/* Use "PM2.5" in Bar dataKey */}
+              <Bar yAxisId="left" dataKey="PM2.5" fill="#46e3e3" />
+              <Bar yAxisId="right" dataKey="SO2" fill="#ffd700" />
+            </BarChart>
+          </ResponsiveContainer>
+
+          {/* PieChart, other components */}
+
+      <ResponsiveContainer width="100%" height={500}> {/* Increase height */}
+      <PieChart width={500} height={500}>
+        <Pie
+          activeIndex={this.state.activeIndex}
+          activeShape={renderActiveShape}
+          data={pieData}
+          cx="50%"
+          cy="50%"
+          innerRadius={80}
+          outerRadius={120}
+          fill="red"
+          dataKey="value"
+          onMouseEnter={this.onPieEnter}
+        />
+      </PieChart>
+    </ResponsiveContainer>
+        </div>
+      </main>
+    );
+  }
+}
