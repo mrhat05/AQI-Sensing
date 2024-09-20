@@ -1,10 +1,9 @@
-.pie-chart-container {
-    position: relative;
-    z-index: 10; /* Ensure the PieChart is on top */
-  }
-  
-  .bar-chart-container {
-    position: relative;
-    z-index: 1; /* Lower z-index for BarChart */
-  }
-  
+.charts {
+  display: flex;
+  justify-content: space-between; /* Side by side layout */
+  gap: 20px; /* Add space between the charts */
+}
+
+.chart-bar, .chart-pie {
+  flex: 1; /* Let both charts take equal width */
+}

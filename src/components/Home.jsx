@@ -6,14 +6,14 @@ import { AiFillMinusCircle } from "react-icons/ai";
 import { FaCirclePlus } from "react-icons/fa6";
 
 const pieData = [
-  { name: 'Place 1', value: 100, fill: '#ff0000' },
-  { name: 'Place 2', value: 78, fill: '#00ff08' },  
-  { name: 'Place 3', value: 50, fill: '#ff0000' }, 
-  { name: 'Place 4', value: 150, fill: '#ff8042' }, 
-  { name: 'Place 4', value: 200, fill: '#00ff08' }, 
-  { name: 'Place 4', value: 250, fill: '#ff8042' }, 
-  { name: 'Place 4', value: 300, fill: '#00ff08' }, 
-  { name: 'Place 4', value: 65, fill: '#ff0000' }, 
+  { name: 'Place 1', AQI: 100, fill: '#ff0000' },
+  { name: 'Place 2', AQI: 78, fill: '#00ff08' },  
+  { name: 'Place 3', AQI: 50, fill: '#ff0000' }, 
+  { name: 'Place 4', AQI: 150, fill: '#ff8042' }, 
+  { name: 'Place 5', AQI: 200, fill: '#00ff08' }, 
+  { name: 'Place 6', AQI: 250, fill: '#ff8042' }, 
+  { name: 'Place 7', AQI: 300, fill: '#00ff08' }, 
+  { name: 'Place 8', AQI: 65, fill: '#ff0000' }, 
 ];
  
 // Define a custom active shape for PieChart
@@ -32,7 +32,7 @@ const renderActiveShape = (props) => {
 
   return (
     <g>
-      <text x={cx} y={cy} dy={8} textAnchor="middle" fill={fill}>
+      <text x={cx} y={cy} dy={8} textAnchor="middle" fill={fill} fontSize={14}> {/* Reduce font size */}
         {payload.name}
       </text>
       <Sector
@@ -55,8 +55,10 @@ const renderActiveShape = (props) => {
       />
       <path d={`M${sx},${sy}L${mx},${my}L${ex},${ey}`} stroke={fill} fill="none" />
       <circle cx={ex} cy={ey} r={2} fill={fill} stroke="none" />
-      <text x={ex + (cos >= 0 ? 1 : -1) * 12} y={ey} textAnchor={textAnchor} fill="#333">{`PV ${value}`}</text>
-      <text x={ex + (cos >= 0 ? 1 : -1) * 12} y={ey} dy={18} textAnchor={textAnchor} fill="#999">
+      <text x={ex + (cos >= 0 ? 1 : -1) * 12} y={ey} textAnchor={textAnchor} fill="#FFFFFF" fontSize={12}> {/* Reduce font size */}
+        {`AQI ${value}`}
+      </text>
+      <text x={ex + (cos >= 0 ? 1 : -1) * 12} y={ey} dy={18} textAnchor={textAnchor} fill="#FFFFFF" fontSize={12}>
         {`(Rate ${(percent * 100).toFixed(2)}%)`}
       </text>
     </g>
@@ -153,48 +155,55 @@ export default class Home extends PureComponent {
           </div>
         </div>
 
-        <div className='charts'>
-          <ResponsiveContainer width="100%" height={400}>
-            <BarChart
-              data={barData}
-              margin={{
-                top: 5,
-                right: 30,
-                left: 20,
-                bottom: 5,
-              }}
-            >
-              <CartesianGrid strokeDasharray="3 3" />
-              <XAxis dataKey="name" />
-              <YAxis yAxisId="left" domain={[0, 25]} />
-              <YAxis yAxisId="right" orientation="right" domain={[0, 0.1]} />
-              <Tooltip />
-              <Legend />
-              {/* Use "PM2.5" in Bar dataKey */}
-              <Bar yAxisId="left" dataKey="PM2.5" fill="#46e3e3" />
-              <Bar yAxisId="right" dataKey="SO2" fill="#ffd700" />
-            </BarChart>
-          </ResponsiveContainer>
+      <div className="charts" style={{ display: 'flex', justifyContent: 'space-between' }}>
+        <div className="chart-bar" style={{ flex: 1, marginRight: '20px' }}>
+        <ResponsiveContainer width="100%" height={400}>
+          <BarChart
+            data={barData}
+            margin={{
+              top: 5,
+              right: 30,
+              left: 20,
+              bottom: 5,
+            }}
+          >
+            {/* Set the stroke color for XAxis and YAxis to white */}
+            <CartesianGrid strokeDasharray="3 3" stroke="#ffffff" /> {/* Make grid lines white */}
+            <XAxis dataKey="name" stroke="#ffffff" /> {/* X-axis labels in white */}
+            <YAxis yAxisId="left" domain={[0, 25]} stroke="#ffffff" /> {/* Y-axis (left) in white */}
+            <YAxis yAxisId="right" orientation="right" domain={[0, 0.1]} stroke="#ffffff" /> {/* Y-axis (right) in white */}
+            
+            <Tooltip />
+            <Legend />
 
-          {/* PieChart, other components */}
+            <Bar yAxisId="left" dataKey="PM2.5" fill="#46e3e3" />
+            <Bar yAxisId="right" dataKey="SO2" fill="#ffd700" />
+          </BarChart>
+        </ResponsiveContainer>
 
-      <ResponsiveContainer width="100%" height={500}> {/* Increase height */}
-      <PieChart width={500} height={500}>
-        <Pie
-          activeIndex={this.state.activeIndex}
-          activeShape={renderActiveShape}
-          data={pieData}
-          cx="50%"
-          cy="50%"
-          innerRadius={80}
-          outerRadius={120}
-          fill="red"
-          dataKey="value"
-          onMouseEnter={this.onPieEnter}
-        />
-      </PieChart>
-    </ResponsiveContainer>
         </div>
+
+        {/* PieChart Container */}
+        <div className="chart-pie" style={{ flex: 1 }}>
+          <ResponsiveContainer width="100%" height={400}> {/* Keep height consistent */}
+            <PieChart>
+              <Pie
+                activeIndex={this.state.activeIndex}
+                activeShape={renderActiveShape}
+                data={pieData}
+                cx="50%" // Center horizontally
+                cy="50%" // Center vertically
+                innerRadius="40%" // Use percentage for responsive radius
+                outerRadius="60%"
+                fill="red"
+                dataKey="AQI"
+                onMouseEnter={this.onPieEnter}
+              />
+            </PieChart>
+          </ResponsiveContainer>
+        </div>
+      </div>
+
       </main>
     );
   }
