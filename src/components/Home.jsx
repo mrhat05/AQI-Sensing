@@ -15,7 +15,7 @@ const pieData = [
   { name: 'Place 4', value: 300, fill: '#00ff08' }, 
   { name: 'Place 4', value: 65, fill: '#ff0000' }, 
 ];
-
+ 
 // Define a custom active shape for PieChart
 const renderActiveShape = (props) => {
   const RADIAN = Math.PI / 180;
