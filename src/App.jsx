@@ -6,7 +6,7 @@ import Home from './components/Home'
 import About from './components/About'
 import Dashboard from './components/Dashboard'
 import Precautions from './components/Precautions'
-import Maps from './components/maps'
+import Maps from './components/Maps'
 import { Route, Routes } from "react-router-dom";
 
 function App() {
