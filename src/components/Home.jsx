@@ -6,16 +6,16 @@ import { AiFillMinusCircle } from "react-icons/ai";
 import { FaCirclePlus } from "react-icons/fa6";
 
 const pieData = [
-  { name: 'Place 1', AQI: 100, fill: '#ff0000' },
-  { name: 'Place 2', AQI: 78, fill: '#00ff08' },  
-  { name: 'Place 3', AQI: 50, fill: '#ff0000' }, 
-  { name: 'Place 4', AQI: 150, fill: '#ff8042' }, 
-  { name: 'Place 5', AQI: 200, fill: '#00ff08' }, 
-  { name: 'Place 6', AQI: 250, fill: '#ff8042' }, 
-  { name: 'Place 7', AQI: 300, fill: '#00ff08' }, 
-  { name: 'Place 8', AQI: 65, fill: '#ff0000' }, 
+  { name: 'Place 1', AQI: 100, fill: '#46e3e3' },
+  { name: 'Place 2', AQI: 78, fill: '#ffd700' },  
+  { name: 'Place 3', AQI: 50, fill: '#46e3e3' }, 
+  { name: 'Place 4', AQI: 150, fill: '#ffd700' }, 
+  { name: 'Place 5', AQI: 200, fill: '#46e3e3' }, 
+  { name: 'Place 6', AQI: 250, fill: '#ffd700' }, 
+  { name: 'Place 7', AQI: 300, fill: '#46e3e3' }, 
+  { name: 'Place 8', AQI: 65, fill: '#ffd700' }, 
 ];
- 
+
 // Define a custom active shape for PieChart
 const renderActiveShape = (props) => {
   const RADIAN = Math.PI / 180;
@@ -168,12 +168,16 @@ export default class Home extends PureComponent {
             }}
           >
             {/* Set the stroke color for XAxis and YAxis to white */}
-            <CartesianGrid strokeDasharray="3 3" stroke="#ffffff" /> {/* Make grid lines white */}
+            <CartesianGrid strokeDasharray="3 3" stroke="" /> {/* Make grid lines white */}
             <XAxis dataKey="name" stroke="#ffffff" /> {/* X-axis labels in white */}
             <YAxis yAxisId="left" domain={[0, 25]} stroke="#ffffff" /> {/* Y-axis (left) in white */}
             <YAxis yAxisId="right" orientation="right" domain={[0, 0.1]} stroke="#ffffff" /> {/* Y-axis (right) in white */}
             
-            <Tooltip />
+            <Tooltip
+            contentStyle={{ backgroundColor: '#000000', color: '#ffffff' }} // Change background and text color
+            itemStyle={{ color: '#00ff08' }} // Change the item (data) color inside the tooltip
+            cursor={{ fill: 'rgba(255, 255, 255, 0.2)' }} // Change the hover highlight on bars
+            />
             <Legend />
 
             <Bar yAxisId="left" dataKey="PM2.5" fill="#46e3e3" />
