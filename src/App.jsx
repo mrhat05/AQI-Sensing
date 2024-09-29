@@ -1,12 +1,13 @@
 import { useState } from 'react'
 import './App.css'
 import Header from './components/Header'
-import Sidebar from './components/Sidebar'
+// import Sidebar from './components/Sidebar'
 import Home from './components/Home'
 import About from './components/About'
 import Dashboard from './components/Dashboard'
 import Precautions from './components/Precautions'
 import Maps from './components/Maps'
+import Charts from './components/Charts'
 import { Route, Routes } from "react-router-dom";
 
 function App() {
@@ -19,7 +20,7 @@ function App() {
   return (
     <div className='grid-container'>
       <Header OpenSidebar={OpenSidebar}/>
-      <Sidebar openSidebarToggle={openSidebarToggle} OpenSidebar={OpenSidebar}/>
+      {/* <Sidebar openSidebarToggle={openSidebarToggle} OpenSidebar={OpenSidebar}/> */}
       <Routes>
       <Route path="/" element={<Home />} />
         <Route 
@@ -31,6 +32,9 @@ function App() {
         <Route 
         path="/Maps" 
         element={<Maps/>} />
+        <Route 
+        path="/Charts" 
+        element={<Charts/>} />
         <Route 
         path="/dashboard" 
         element={<Dashboard />} 
