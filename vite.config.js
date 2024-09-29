@@ -9,13 +9,13 @@ export default defineConfig({
       output: {
         manualChunks(id) {
           if (id.includes('node_modules')) {
-            // Create separate chunks for each third-party library
-            return id.toString().split('node_modules/')[1].split('/')[0].toString();
+            const parts = id.toString().split('node_modules/');
+            return parts.length > 1 ? parts[1].split('/')[0] : null;
           }
         }
+        
       }
     },
-
     chunkSizeWarningLimit: 1000 
   }
 })
