@@ -1,0 +1,110 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Times New Roman', Times, serif;
+  }
+  
+.Precautions{
+    display: flex;
+    flex-direction: column;
+
+   
+}  
+.HealthTips{
+    background-color: #FFF3E9;
+
+}
+.content{
+    padding-top: 2.5em;
+}
+.HealthTipsCon{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+
+}
+.HealthCentres{
+    display: flex;
+    flex-direction: row;
+    background-color: #FFF3E9;
+    /* background-color: #d2d6ea; */
+    justify-content: space-around;
+}
+.health-content{
+    margin-top: 10%;
+}
+.Healthsubtitle{
+    font-size: 17px ;
+    font-family: 'Montserrat', sans-serif;
+    line-height: 25px;
+
+}
+.DesCrip{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20px ;
+
+}
+.DesCripH{
+    font-size: 32px;
+    font-weight: 700;
+}
+.work {
+    display: flex;
+    flex-direction: row;
+    background-color: #D1F3F3;
+    justify-content: space-around;
+   
+    
+}
+.help{
+    background-color: #C4DBE8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+.HelpUs{
+    margin: x auto;
+    display: flex;
+    border-radius: 5px;
+    background-color: #EDF6FD;
+    margin-bottom: 25px;
+    margin-top: 20px;
+    border-radius: 1.5em;
+    box-shadow:  0 4px 8px rgba(0, 0, 0, 0.2);
+    opacity: 80%;
+}
+.HelpUs > h1{
+    font-weight: 700;
+    
+}
+.outline{
+    background-color: #edf6fd74; 
+    border-radius: 15px;
+    height: 35px;
+    background-color: #d7ecfdda;
+    width: 100%;
+    
+}
+input, textarea {
+    outline: none;
+    border: 2px solid #ccc; 
+    border-radius: 10px;
+    padding: 5px; 
+    background-color: #e6f4ff; 
+  }
+  input:focus, textarea:focus {
+    border-color: #000; 
+  }
+  
+.formCon{
+    margin-top: 10%;
+    padding-left: 2.5rem;
+    padding-bottom: 1.2em;
+    
+}
+
+.html{
+    margin-left: 1em;
+}

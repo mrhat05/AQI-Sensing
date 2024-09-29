@@ -14,27 +14,27 @@ body {
     height: 100%; 
     position: relative;
   }
+.aboutBanner{
+    z-index: 1;
+}  
 .banner{
+    width: 100%;
+}
 
-    width: 100%;
-    
-}
-.bannerI{
-    position: absolute;
-    width: 100%;
-    object-fit: contain;
-    z-index: -1;
-}
 .bannerD{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: 19%;
+    margin-top: 5%;
+   
 }
 .bannerH{
-    font-size: 4rem;
-    color: rgb(237, 234, 234);
+    /* font-size: 4rem; */
+    font-size: 50px;
+    line-height: 75px;
+    font-weight: 800;
+    color: rgb(3, 0, 0);
 
 }
 .bannerP{
@@ -45,7 +45,7 @@ body {
     line-height: .8;   
     font-size: large;
     font-size: 1.2rem;
-    color: white;
+    color: rgb(0, 0, 0);
     
 }
 
