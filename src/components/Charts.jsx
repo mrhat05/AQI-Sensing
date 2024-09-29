@@ -91,20 +91,7 @@ export default class Charts extends PureComponent {
      <div>
         <h2 className='text-red-700'>Charts</h2>
       <div className="charts" style={{ display: 'flex', justifyContent: 'space-between' }}>
-        <div className="chart-bar" style={{ flex: 1, marginRight: '20px' }}>
-          <ResponsiveContainer width="100%" height={400}>
-            <BarChart data={barData} margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>
-              <CartesianGrid strokeDasharray="3 3" />
-              <XAxis dataKey="name" stroke="black" />
-              <YAxis yAxisId="left" domain={[0, 25]} stroke="black" />
-              <YAxis yAxisId="right" orientation="right" domain={[0, 0.1]} stroke="black" />black
-              <Tooltip contentStyle={{ backgroundColor: '#000000', color: '#ffffff' }} itemStyle={{ color: '#00ff08' }} cursor={{ fill: 'rgba(255, 255, 255, 0.2)' }} />
-              <Legend />
-              <Bar yAxisId="left" dataKey="PM2.5" fill={s1} />
-              <Bar yAxisId="right" dataKey="SO2" fill={s2} />
-            </BarChart>
-          </ResponsiveContainer>
-        </div>
+
 
         <div className="chart-pie" style={{ flex: 1 }}>
           <ResponsiveContainer width="100%" height={400}>
