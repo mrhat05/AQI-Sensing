@@ -1,5 +1,5 @@
 import React from 'react'
-import nature2 from '../assets/nature2.jpg';
+//import aboutBanner from '../assets/aboutBanner.png';
 import './About.css'
 import defaultavatar1 from '../assets/defaultavatar1.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -13,8 +13,8 @@ const About = () => {
     //banner
     <div className='about'>
     <div className='banner'>
-        <div className='bannerI'>
-            <img src={nature2} style={{ width: '100%', height:'500px'}} />
+        <div className='aboutBanner'>
+        <img />
         </div>
         <div className='bannerD'>
             <div className='bannerH'>ABOUT US</div>
