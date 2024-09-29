@@ -1,3 +1,4 @@
+@import url('https://api.mapbox.com/mapbox-gl-js/v2.9.2/mapbox-gl.css');
 
 *{
   font-family: 'Whitney',sans-serif;
@@ -126,19 +127,36 @@ body {
 }
 
 .sidebar-list-item {
-  padding: 20px 20px 20px 20px;
-  font-size: 18px;
-  font-weight: 400;
+  position: relative; /* Needed for the pseudo-element */
+  padding: 20px 20px; /* Adjust padding if necessary */
+  font-size: 17px;
 }
 
-.sidebar-list-item:hover {
-  background-color: rgba(255, 255, 255, 0.2);
-  cursor: pointer;
-}
+
+
 
 .sidebar-list-item > a {
-  text-decoration: none;
-  color: black;
+  text-decoration: none; /* Remove default underline */
+  color: black; /* Text color */
+  position: relative; /* Needed for the pseudo-element */
+}
+.sidebar-list-item > a::after {
+  content: '';
+  position: absolute;
+  left: 50%; /* Center the line */
+  bottom: -50%; /* Position at the bottom */
+  width: 0; /* Start with no width */
+  height: 2px; /* Thickness of the underline */
+  background-color: #46a03a; /* Underline color */
+  transition: width 0.3s ease, left 0.3s ease; /* Smooth transition */
+}
+.sidebar-list-item > a:hover {
+  color: #46a03a; /* Change text color on hover */
+  
+}
+.sidebar-list-item > a:hover::after {
+  width: 100%; /* Full width on hover */
+  left: 0; /* Align to the left */
 }
 
 .sidebar-responsive {
@@ -184,6 +202,9 @@ body {
   margin: 15px;
 }
 .main-container3{
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: #ffffff;
   box-shadow: 0 6px 7px -3px rgba(0, 0, 0, 0.35);
   margin: 15px;
@@ -270,11 +291,6 @@ body {
   border-radius: 8px; /* Rounded corners */
 }
 
-.pollutants ul {
-  list-style: none; /* Remove default list style */
-  padding: 0; /* Remove padding */
-}
-
 .home-text2 h2 {
   font-family: 'Arial', sans-serif;
   color: #333; /* Dark gray color for text */
@@ -288,21 +304,57 @@ body {
 }
 
 .pollutants {
-  border-radius: 5px; /* Rounded corners */
-  padding: 10px; /* Padding inside the pollutants section */
-  /* background-color: #e8f0fe; */
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-top: 20px;
+  width: 99%;
 }
 
 .pollutants h3 {
-  font-size: 1.2em; /* Slightly larger font size for pollutants header */
-  margin-bottom: 10px; /* Spacing below the header */
-  color: #2c3e50; /* Darker color for better readability */
+  font-family: 'Arial', sans-serif;
+  color: #333;
+  font-size: 1.5em;
+  margin-bottom: 15px;
 }
 
-.pollutants li {
-  margin: 5px 0; /* Spacing between list items */
-  font-size: 1em; /* Standard font size */
-  color: #333; /* Darker text for better readability */
+.pollutant-table {
+  display: table;
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.pollutant-row {
+  display: table-row;
+}
+
+.pollutant-header {
+  font-weight: bold;
+  background-color: #f0f4f8;
+  border-bottom: 2px solid #ccc;
+}
+
+.pollutant-row > div {
+  display: table-cell;
+  padding: 10px;
+  font-family: 'Arial', sans-serif;
+  font-size: 1em;
+  color: #333;
+  border-bottom: 1px solid #e0e0e0;
+  text-align: left;
+}
+
+.pollutant-header > div {
+  text-align: left;
+}
+
+.pollutant-row:last-child > div {
+  border-bottom: none;
+}
+
+.pollutant-row:hover {
+  background-color: #f9f9f9;
 }
 
 .home-text2 h3,
@@ -341,9 +393,66 @@ button:hover {
 } */
 
 /* End Main  */
-
+.table-container{
+  width: 50%;
+  height: 150%;
+}
 
 /* Medium <= 992px */
+.home-table-styling {
+  height: 381px;
+  width: 100%;
+  color: black;
+  border-collapse: collapse;
+  margin: 25px 0;
+  font-size: 1.1em;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  /* min-width: 120%; */
+  /* max-width: 1200px; */
+  background-color: #f0f4f8;
+  /* border-radius: 12px; */
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  border: 2px solid #000000;
+
+}
+
+.home-table-styling thead tr {
+  background-color: #c1c1c1;
+  /* color: #ffffff; */
+  text-align: left;
+  font-weight: bold;
+  border: 2px solid #000000;
+
+}
+
+.home-table-styling th,
+.home-table-styling td {
+  padding: 12px 15px;
+  text-align: center;
+}
+
+.home-table-styling tbody tr {
+  border-bottom: 1px solid #000000;
+  border: 2px solid #000000;
+
+}
+
+.home-table-styling tbody tr:hover {
+
+  /* background-color: #c0bebe; */
+  /* background-color: #46a03a; */
+  transform: scale(1.05);
+  transition: all 0.2s ease-in-out;
+  /* color: white; */
+}
+.home-table-styling tbody td{
+  border-left: 1px solid black;
+}
+.home-table-styling  th{
+  border-left: 1px solid black;
+}
+
   
 @media screen and (max-width: 992px) {
   .grid-container {
