@@ -5,6 +5,7 @@ body {
   }
 
 .about {
+  font-family: 'Whitney Light', 'Whitney Book', 'Whitney Semibold', 'Whitney', sans-serif;
     grid-area: main; 
     display: flex;
     flex-direction: column;
