@@ -17,6 +17,9 @@ import {
 
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
+import new4  from '../assets/new4.jpg';
+import new7  from '../assets/new7.png';
+import new8  from '../assets/new8.png';
 
 let s1 = "#030460";
 let s2 = "#0078B5";
@@ -122,19 +125,19 @@ const Home = () => {
           interval={3000} >
           {/* First Image */}
           <div onClick={() => handleRedirect('/page1')}>
-            <img src="src/assets/new4.jpg" alt="Image 1" />
+            <img src={new4} alt="Image 1" />
             {/* <p className="legend">Page 1</p>  */}
           </div>
 
           {/* Second Image */}
           <div onClick={() => handleRedirect('/page2')}>
-            <img src="src/assets/new7.png" alt="Image 2" />
+            <img src={new7} alt="Image 2" />
             {/* <p className="legend">Page 2</p> */}
           </div>
 
           {/* Third Image */}
           <div onClick={() => handleRedirect('/page3')}>
-            <img src="src/assets/new8.png" alt="Image 3" />
+            <img src={new8} alt="Image 3" />
             {/* <p className="legend">Page 3</p> */}
           </div>
         </Carousel>
