@@ -16,7 +16,7 @@ const Maps = () => {
         <div className='main-title-maps'>
           <h2>Live Maps</h2>
         </div>
-    <div className='map-container'>
+    <div >
       <Maps_comp aqiData={aqidata}/>
       </div>
     </div>

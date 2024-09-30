@@ -1,0 +1,52 @@
+.blog-main-container{
+  display: flex;
+  justify-content: center;
+}
+.blog-container {
+  
+  background-color: #ffffff;
+  box-shadow: 0 6px 7px -3px rgba(0, 0, 0, 0.35);
+  margin: 50px ;
+  padding: 30px;
+    max-width: 800px;
+    /* margin: 0 auto; */
+    /* padding: 20px; */
+    font-family: Arial, sans-serif;
+  }
+  
+  .blog-header {
+    text-align: center;
+    margin-bottom: 20px;
+    font-family: 'Whitney Light', 'Whitney Book', 'Whitney Semibold', 'Whitney', sans-serif;
+    font-family: 'Whitney Light', 'Whitney Book', 'Whitney Semibold', 'Whitney', sans-serif;
+  }
+  
+  .blog-intro, .blog-content {
+    margin-bottom: 20px;
+    font-family: 'Whitney Light', 'Whitney Book', 'Whitney Semibold', 'Whitney', sans-serif;
+  }
+  
+  .blog-h1 {
+    font-size: 2.5em;
+    color: #2c3e50;
+    
+  }
+  
+  .blog-h2 {
+    font-size: 1.8em;
+    color: #2980b9;
+  }
+  
+  .blog-p {
+    font-size: 1.2em;
+    line-height: 1.5;
+    color: #34495e;
+  }
+  
+  .blog-footer {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 0.9em;
+    color: #7f8c8d;
+  }
+  
