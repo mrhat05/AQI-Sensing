@@ -1,0 +1,65 @@
+.map-container {
+    font-family: 'Whitney Light', 'Whitney Book', 'Whitney Semibold', 'Whitney', sans-serif;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px;
+    background-color: #ffffff;
+    margin: 15px;
+    box-shadow: 0 6px 7px -3px rgba(0, 0, 0, 0.35);
+    border-radius: 10px;
+  }
+  
+  .main-title-maps {
+    font-family: 'Whitney Light', 'Whitney Book', 'Whitney Semibold', 'Whitney', sans-serif;
+
+    display: flex;
+    /* justify-content: center; */
+    margin-left: 2.5%;
+    font-size: 23px;
+  }
+  
+  .leaflet-map {
+    height: 500px;
+    width: 100%;
+    max-width: 1200px;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  
+  .aqi-legend {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-top: 20px;
+    text-align: center;
+    font-size: 1.1em;
+  }
+  
+  .legend-box {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    border-radius: 4px;
+  }
+  
+  .green {
+    background-color: green;
+  }
+  
+  .orange {
+    background-color: orange;
+  }
+  
+  .red {
+    background-color: red;
+  }
+  
+  .geocoder-container {
+    width: 100%;
+    max-width: 600px;
+    margin-bottom: 15px;
+  }
+  

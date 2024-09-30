@@ -3,7 +3,7 @@ import { useState } from "react";
 import doc1 from '../assets/doc1.png'; 
 import doc2 from '../assets/doc2.png'; 
 import team2 from '../assets/team2.png';
-import './precautions.css';
+import './Precautions.css';
 import sendd from '../assets/sendd.png';
 import { Link } from 'react-router-dom'
 // import Contact from './Contact';
