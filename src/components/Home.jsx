@@ -122,19 +122,19 @@ const Home = () => {
           interval={3000} >
           {/* First Image */}
           <div onClick={() => handleRedirect('/page1')}>
-            <img src="public/new4.png" alt="Image 1" />
+            <img src="src/assets/new4.jpg" alt="Image 1" />
             {/* <p className="legend">Page 1</p>  */}
           </div>
 
           {/* Second Image */}
           <div onClick={() => handleRedirect('/page2')}>
-            <img src="public/new7.png" alt="Image 2" />
+            <img src="src/assets/new7.png" alt="Image 2" />
             {/* <p className="legend">Page 2</p> */}
           </div>
 
           {/* Third Image */}
           <div onClick={() => handleRedirect('/page3')}>
-            <img src="public/new8.png" alt="Image 3" />
+            <img src="src/assets/new8.png" alt="Image 3" />
             {/* <p className="legend">Page 3</p> */}
           </div>
         </Carousel>
