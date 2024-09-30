@@ -1,0 +1,51 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+  }
+
+.formCon{
+    background-color:#8decff6a;
+    margin-top: auto;
+    padding: 10px 25px 25px 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+.formDiv{
+    border-radius: 10px;
+    background-color: #d0efecf6;
+    width: 50%;
+    box-shadow:  0 4px 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+}
+.Ftitle{
+    font-size:xx-large;
+    margin-bottom: 50px;
+    
+}
+.BtnF{
+    text-decoration: none;
+}
+.forminputs{
+    padding: 20px 25px 25px 20px;
+}
+.inputProp {
+    width: 300px; 
+    padding: 10px; 
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.htmlTag{
+    font-size: 18px;
+    font-weight: 500;
+    display: block;
+}
+
