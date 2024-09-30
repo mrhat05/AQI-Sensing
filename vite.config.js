@@ -8,6 +8,7 @@ export default defineConfig({
       external: [
         // Mark Getlocation.jsx as external
         'src/components/Getlocation.jsx',
+        './src/components/weather.css'
       ],
     },
   },
