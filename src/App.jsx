@@ -9,6 +9,8 @@ import Precautions from './components/Precautions'
 import Maps from './components/Maps'
 import Charts from './components/Charts'
 import { Route, Routes } from "react-router-dom";
+import FormContainer from './components/FormContainer';
+import Centers from './components/Centers'
 
 function App() {
   const [openSidebarToggle, setOpenSidebarToggle] = useState(false)
@@ -38,6 +40,14 @@ function App() {
         <Route 
         path="/dashboard" 
         element={<Dashboard />} 
+        />
+        <Route 
+        path="/FormContainer" 
+        element={<FormContainer/>} 
+        />
+        <Route 
+        path="/Centers" 
+        element={<Centers/>} 
         />
       </Routes>
     </div>

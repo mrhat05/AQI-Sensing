@@ -5,6 +5,7 @@ import doc2 from '../assets/doc2.png';
 import team2 from '../assets/team2.png';
 import './precautions.css';
 import sendd from '../assets/sendd.png';
+import { Link } from 'react-router-dom'
 // import Contact from './Contact';
 
 const Precautions = () => {
@@ -62,9 +63,11 @@ const Precautions = () => {
               Stay healthy, stay informed! Discover the nearest health centers for fast,<br/>reliable medical assistance near you.
               </p>
              
-              <button className="cta-health-button">
-               Find Now
-              </button>
+              <button className="cta-button">
+                <Link to="/Centers" className='BtnF'>
+                    Find Now
+                </Link>
+            </button>
             </div>
             <div className="health-image-container">
               <img src={doc2} alt="Nurse Illustration" className="nurse-illustration" style={{width:"500px" , height:"500px"}}/>
@@ -85,11 +88,12 @@ const Precautions = () => {
             </p>
 
             <button className="cta-button">
-             Fill Now
+            <Link to="/FormContainer" className='BtnF'>
+                Fill Now
+            </Link>
             </button>
             </div>
             
-
           </div>
 
           {/* help Us */}
@@ -97,7 +101,7 @@ const Precautions = () => {
              
               <div className='HelpUs'>
                   
-                  <div className='formCon'>
+                  <div className='formContactUs'>
                   <h1 >Contact Us</h1>
                   <form onSubmit={submitHandler}>
                   <label htmlFor="Name" className='html'>Name</label>
