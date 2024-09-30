@@ -9,6 +9,9 @@ import Precautions from './components/Precautions'
 import Maps from './components/Maps'
 import Charts from './components/Charts'
 import { Route, Routes } from "react-router-dom";
+import FormContainer from './components/FormContainer';
+import Centers from './components/Centers'
+
 import Nearby_charts from './components/Nearby_charts'
 import Page1 from './components/Page1'
 import Page2 from './components/Page2'
@@ -39,7 +42,14 @@ function App() {
         <Route path="page3" element={<Page3 />} />
         <Route path="/login" element={<AuthPage />} />
         <Route path="/signup" element={<AuthPage />} />
-
+        <Route 
+        path="/FormContainer" 
+        element={<FormContainer/>} 
+        />
+        <Route 
+        path="/Centers" 
+        element={<Centers/>} 
+        />
       </Routes>
 
       <footer className="blog-footer">
