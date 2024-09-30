@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom'; 
 import Weather from './Weather';
-import GetLocation from './GetLocation';
+import GetLocation from 'src/components/Getlocation.jsx';
 import axios from 'axios';
 import {
   BarChart,
