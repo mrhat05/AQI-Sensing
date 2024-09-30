@@ -1,5 +1,10 @@
+
 .header-right{
     display: flex;
     gap: 5px;
     
 }
+.sidebar-list-item .active {
+    font-weight: bold; /* Example style */
+    color: #46a03a;
+  }

@@ -1,82 +1,60 @@
-import React from 'react'
-import
- {BsFillBellFill, BsFillEnvelopeFill, BsPersonCircle, BsSearch, BsJustify}
- from 'react-icons/bs'
-import './header.css'
+import React from 'react';
+import { BsFillBellFill, BsFillEnvelopeFill, BsSearch, BsJustify } from 'react-icons/bs';
+import './header.css';
 import { GiTreeBranch } from "react-icons/gi";
-import { Link } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom';
 
-function Header({OpenSidebar}) {
+function Header({ OpenSidebar }) {
   return (
     <header className='header'>
       <div className="upperheader">
         <div className="sidebar-title">
           <div className="sidebar-brand">
-          <GiTreeBranch className='icon_header' />AQI Sensing
+            <GiTreeBranch className='icon_header' />
+            <span className="optimal-title">Optimals</span>
+            <span className="trademark-title">AQI Sensing</span>
           </div>
-          {/* <span classname="icon close_icon" onClick={OpenSidebar}>X</span> */}
         </div>
 
         <div className='menu-icon'>
-            {/* <BsJustify className='icon' onClick={OpenSidebar}/> */}
+          {/* <BsJustify className='icon' onClick={OpenSidebar}/> */}
         </div>
-        {/* <div className='header-left'>
-            <BsSearch  className='icon'/>
-        </div> */}
         <div className='header-right'>
-            {/* <BsFillBellFill className='icon'/> */}
-            {/* <BsFillEnvelopeFill className='icon'/> */}
-            <BsPersonCircle className='icon'/>
+          <NavLink to="/login" className='header-button'>Login</NavLink>
+          <NavLink to="/signup" className='header-button'>Sign Up</NavLink>
         </div>
-        </div>
-        {/* <div id="sidebar" className={openSidebarToggle ? "sidebar-responsive": ""}> */}
-        <div className="nav">
+      </div>
+      <div className="nav">
         <ul className='sidebar-list'>
-            <li className='sidebar-list-item'>
-                <Link to="/">
-                
-                    Dashboard
-                
-                </Link>
-               
-            </li>
-            <li className='sidebar-list-item'>
-                <Link to="/Maps">
-                
-                    Maps
-                
-                </Link>
-                
-            </li>
-            <li className='sidebar-list-item'>
-                <Link to="/Charts">
-                
-                    Charts
-                
-                </Link>
-                
-            </li>
-            <li className='sidebar-list-item'>
-                <Link to="/Precautions">
-                
-                    Precautions
-                
-                </Link>
-            </li>
-
-            <li className='sidebar-list-item' >
-            <Link to="/About">
-            
-                    About
-                
-            </Link>
-               
-            </li>
+          <li className='sidebar-list-item'>
+            <NavLink to="/" className={({ isActive }) => (isActive ? 'active' : '')}>
+              Dashboard
+            </NavLink>
+          </li>
+          <li className='sidebar-list-item'>
+            <NavLink to="/Maps" className={({ isActive }) => (isActive ? 'active' : '')}>
+              Maps
+            </NavLink>
+          </li>
+          <li className='sidebar-list-item'>
+            <NavLink to="/Charts" className={({ isActive }) => (isActive ? 'active' : '')}>
+              Charts
+            </NavLink>
+          </li>
+          <li className='sidebar-list-item'>
+            <NavLink to="/Precautions" className={({ isActive }) => (isActive ? 'active' : '')}>
+              Precautions
+            </NavLink>
+          </li>
+          <li className='sidebar-list-item'>
+            <NavLink to="/About" className={({ isActive }) => (isActive ? 'active' : '')}>
+              About
+            </NavLink>
+          </li>
         </ul>
-        </div>
-    {/* </div> */}
+      </div>
     </header>
-  )
+  );
 }
 
-export default Header
+export default Header;
